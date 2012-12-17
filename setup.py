@@ -10,7 +10,7 @@ except ImportError:
 
 setup(
     name = 'KKBOXTracPlugin',
-    version = '1.0',
+    version = '1.0.0',
     author = 'Gasol Wu',
     author_email = 'gasolwu@kkbox.com',
     packages = find_packages(),
