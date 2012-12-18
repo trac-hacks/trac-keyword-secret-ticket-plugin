@@ -3,7 +3,7 @@ from trac.core import Component, implements, TracError
 from trac.perm import IPermissionPolicy
 
 class KKBOXSecretTicketsPolicy(Component):
-    implements(IPermissionPolicy)
+    implements(IPermissionRequestor, IPermissionPolicy)
 
     def __init__(self):
         config = self.env.config
@@ -19,21 +19,22 @@ class KKBOXSecretTicketsPolicy(Component):
             return self.check_ticket_access(perm, resource)
 
     def check_ticket_access(self, perm, res):
-        if not self.sensitive_keyword:
-            return None
-
         try:
             ticket = Ticket(self.env, res.id)
-            keywords = [k.strip() for k in ticket['keywords'].split(',')]
-            if self.sensitive_keyword in keywords:
-                cc_list = [cc.strip() for cc in ticket['cc'].split(',')]
+            has_relationship = self._has_relationship(ticket, perm.username)
 
-                if perm.username == ticket['reporter'] or \
-                   perm.username == ticket['owner'] or \
-                   perm.username in cc_list:
-                    return None
-                else:
-                    return False
+            keywords = [keyword.strip() for keyword in ticket['keywords'].split(',')]
+            if self.sensitive_keyword and \
+               self.sensitive_keyword in keywords:
+                return has_relationship
         except TracError as e:
             self.log.error(e.message)
-            return None
+
+        return None
+
+    def _has_relationship(self, ticket, username):
+        cc_list = [cc.strip() for cc in ticket['cc'].split(',')]
+
+        return username == ticket['reporter'] or \
+               username == ticket['owner'] or \
+               username in cc_list
