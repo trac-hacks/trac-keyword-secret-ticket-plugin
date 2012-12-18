@@ -16,7 +16,7 @@ setup(
     packages = find_packages(),
     entry_points = {
         'trac.plugins': [
-            'secretticket = kkbox.trac.secretticket',
+            'kkbox = kkbox.trac.secretticket',
         ],
     },
 )
