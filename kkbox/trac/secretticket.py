@@ -44,10 +44,11 @@ class KKBOXSecretTicketsPolicy(Component):
         return None
 
     def _has_relationship(self, ticket, username):
-        cc_list = [cc.strip() for cc in ticket['cc'].split(',')]
+        username = username.lower()
+        cc_list = [cc.strip().lower() for cc in ticket['cc'].split(',')]
 
-        return username == ticket['reporter'] or \
-               username == ticket['owner'] or \
+        return username == ticket['reporter'].lower() or \
+               username == ticket['owner'].lower() or \
                username in cc_list
 
     def _get_groups(self, user):
