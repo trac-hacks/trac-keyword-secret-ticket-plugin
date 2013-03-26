@@ -22,6 +22,7 @@ setup(
     author_email = 'gasolwu@kkbox.com',
     description = 'Adds ticket security policy based on keyword or group',
     license = '3-Clause BSD',
+    keywords = 'permission permissions acl trac keywords plugin',
     packages = find_packages(),
     entry_points = {
         'trac.plugins': [
