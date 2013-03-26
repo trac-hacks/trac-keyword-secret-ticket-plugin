@@ -20,6 +20,7 @@ setup(
     version = '1.0.1',
     author = 'Gasol Wu',
     author_email = 'gasolwu@kkbox.com',
+    license = '3-Clause BSD',
     packages = find_packages(),
     entry_points = {
         'trac.plugins': [
