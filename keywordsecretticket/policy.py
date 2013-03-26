@@ -9,7 +9,7 @@ from trac.ticket.model import Ticket
 from trac.core import Component, implements, TracError, ExtensionPoint
 from trac.perm import IPermissionPolicy, IPermissionGroupProvider, PermissionSystem
 
-class KKBOXSecretTicketsPolicy(Component):
+class KeywordSecretTicketPolicy(Component):
     implements(IPermissionPolicy)
     group_providers = ExtensionPoint(IPermissionGroupProvider)
 

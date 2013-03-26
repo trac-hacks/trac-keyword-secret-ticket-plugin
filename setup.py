@@ -8,17 +8,20 @@
 
 from setuptools import find_packages, setup
 
+PACKAGE = 'TracKeywordSecretTicketsPlugin'
+VERSION = '1.0.1'
+
 try:
     import trac
     if trac.__version__ < '0.11.6':
-        print "KKBOXTracPlugin %s requires Trac >= 0.11.6" % version
+        print "%s %s requires Trac >= 0.11.6" % (PACKAGE, VERSION)
         sys.exit(1)
 except ImportError:
     pass
 
 setup(
-    name = 'KKBOXTracPlugin',
-    version = '1.0.1',
+    name = PACKAGE,
+    version = VERSION,
     author = 'Gasol Wu',
     author_email = 'gasolwu@kkbox.com',
     description = 'Adds ticket security policy based on keyword or group',
@@ -27,7 +30,7 @@ setup(
     packages = find_packages(),
     entry_points = {
         'trac.plugins': [
-            'kkbox = kkbox.trac.secretticket',
+            'keywordsecretticket = keywordsecretticket.policy',
         ],
     },
 )
