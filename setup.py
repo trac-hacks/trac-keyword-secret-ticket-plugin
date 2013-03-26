@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 #
 # Copyright (C) 2012-2013 KKBOX Technologies Limited
 # Copyright (C) 2012-2013 Gasol Wu <gasol.wu@gmail.com>
