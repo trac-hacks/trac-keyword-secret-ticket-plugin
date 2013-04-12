@@ -34,6 +34,9 @@ class KeywordSecretTicketPolicy(Component):
 
     def check_ticket_access(self, perm, res):
         try:
+            if 'TRAC_ADMIN' in perm:
+                return None
+
             ticket = Ticket(self.env, res.id)
             has_relationship = self._has_relationship(ticket, perm.username)
 
