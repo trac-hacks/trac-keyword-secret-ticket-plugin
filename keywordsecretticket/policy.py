@@ -27,7 +27,9 @@ class KeywordSecretTicketPolicy(Component):
                 break
             resource = resource.parent
 
-        if resource and 'ticket' == resource.realm and resource.id:
+        if resource and \
+           'ticket' == resource.realm and \
+           resource.id:
             return self.check_ticket_access(perm, resource)
 
     def check_ticket_access(self, perm, res):
