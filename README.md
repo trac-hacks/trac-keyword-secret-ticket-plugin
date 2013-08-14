@@ -13,7 +13,7 @@ Secret ticket is restricted the following role for `TICKET_VIEW` permission:
 * Reporter.
 * Ticket owner.
 * All cc.
-* Users with `TRAC_ADMIN`.
+* Users with `TRAC_ADMIN` permission.
 
 Usage
 =====
