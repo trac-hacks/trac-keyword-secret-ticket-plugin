@@ -34,6 +34,10 @@ In kkbox part:
     insensitive_group = intern,outsourcing
     sensitive_keyword = secret
 
+For `insensitive_group`, which means users in these groups will be granted `TICKET_VIEW` permission only if he/she is reporter, ticket owner, or in cc list.
+
+For `sensitive_keyword` sets to `secret`, which means when a ticket's keyword contains "`secret`", then it will become secret ticket.
+
 License
 =======
 
