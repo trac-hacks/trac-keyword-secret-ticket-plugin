@@ -24,3 +24,8 @@ In kkbox part:
     [kkbox]
     insensitive_group = intern,outsourcing
     sensitive_keyword = secret
+
+License
+=======
+
+3-clause BSD license.  Read COPYING.
